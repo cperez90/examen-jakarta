@@ -11,7 +11,7 @@ public class ConnectionManager {
         if (emf == null) {
             synchronized (ConnectionManager.class) {
                 if (emf == null) {
-                    emf = Persistence.createEntityManagerFactory("RepasoMysql");
+                    emf = Persistence.createEntityManagerFactory("blackjack");
                 }
             }
         }
