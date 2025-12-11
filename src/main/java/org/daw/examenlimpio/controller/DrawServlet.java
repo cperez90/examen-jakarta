@@ -33,6 +33,6 @@ public class DrawServlet extends HttpServlet {
         }
 
         request.setAttribute("deck", deck);
-        request.getRequestDispatcher("/deck.jsp").forward(request, response);
+        response.sendRedirect("decks?id="+deckId);
     }
 }
