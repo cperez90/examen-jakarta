@@ -54,7 +54,10 @@ public class DeckServlet extends HttpServlet {
                 throw new ServletException("Error fetching deck: " + e.getMessage(), e);
             }
         }
-
-        response.sendRedirect("decks");
+        try {
+            response.sendRedirect("decks");
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }
