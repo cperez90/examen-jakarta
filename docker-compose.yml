@@ -1,0 +1,38 @@
+name: examen-jakarta
+services:
+  tomee:
+    image: tomee:jre21-webprofile
+    container_name: tomee_examen
+    ports:
+      - "8885:8080"
+    volumes:
+      - ./target:/usr/local/tomee/webapps
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.34
+    container_name: mysql_db_examen
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: examen
+      MYSQL_USER: cristian
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3396:3306"
+    volumes:
+      - db_examen:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_examen
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8686:80"
+    depends_on:
+      - db
+
+volumes:
+  db_examen:
