@@ -65,7 +65,7 @@
 
     <build>
         <finalName>
-            ROOT
+            PerezCristianBlackJack
         </finalName>
         <plugins>
             <plugin>
